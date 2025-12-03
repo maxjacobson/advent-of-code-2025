@@ -82,7 +82,6 @@ function invalid_part_two_ids
     end
 end
 
-set --local progress 1
 for range in $ranges
     set --local ids (string split - "$range")
     set --local start (string trim $ids[1])
@@ -95,8 +94,6 @@ for range in $ranges
     for invalid_part_two_id in (invalid_part_two_ids "$start" "$stop")
         set part_two_result (math "$part_two_result + $invalid_part_two_id")
     end
-
-    set progress (math "$progress + 1")
 end
 
 echo "Part one: $part_one_result"
